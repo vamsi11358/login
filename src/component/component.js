@@ -14,23 +14,32 @@ export default function Login(){
     return(
         <>
         <h1>Login Page</h1>
-        {!login && (
-        <form  onSubmit={handleSubmit}>
-            <h4>Invalid username or password</h4>
-        <label for='username'>Username:</label>
-        <input placeholder='Username' name='username' type='username' required onChange={(e)=>setText(e.target.value)}/>
-        <br/>
-        <label for='Password'>Password:</label>
-        <input placeholder='Password' type='password' name='password'  required onChange={(e)=>setPassword(e.target.value)}/>
-        <br/>
-        <button type='submit'>Submit</button>
-        </form>
-)}
-{login && (
-    <h1>Welcome ,user!</h1>
-)
-
-}
+            {!login ? (
+                <form onSubmit={handleSubmit}>
+                    {error && <h4>{error}</h4>}
+                    <label htmlFor='username'>Username:</label>
+                    <input
+                        placeholder='Username'
+                        name='username'
+                        type='text'
+                        required
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <br />
+                    <label htmlFor='password'>Password:</label>
+                    <input
+                        placeholder='Password'
+                        type='password'
+                        name='password'
+                        required
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <br />
+                    <button type='submit'>Submit</button>
+                </form>
+            ) : (
+                <h1>Welcome, user!</h1>
+            )}
         </>
     )
 }
