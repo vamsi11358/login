@@ -1,16 +1,20 @@
 import {useState} from 'react';
 
 export default function Login(){
-    const [text, setText] = useState('');
-    const [password, setPassword]= useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const [login, setLogin] = useState(false);
-    const handleSubmit = ()=>{
-        if(text === 'user' && password === 'password'){
-            setLogin(true)
-        }else{
+    const [error, setError] = useState('');
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (username === 'user' && password === 'password') {
+            setLogin(true);
+            setError('');
+        } else {
             setLogin(false);
+            setError('Invalid username or password');
         }
-    }
+    };
     return(
         <>
         <h1>Login Page</h1>
