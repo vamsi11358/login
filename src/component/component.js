@@ -17,7 +17,7 @@ export default function Login(){
         {!login && (
         <form  onSubmit={handleSubmit}>
             <h4>Invalid username or password</h4>
-        <label for='username'>User Name:</label>
+        <label for='username'>Username:</label>
         <input placeholder='Username' name='username' type='username' required onChange={(e)=>setText(e.target.value)}/>
         <br/>
         <label for='Password'>Password:</label>
